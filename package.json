@@ -1,0 +1,12 @@
+{
+  "name": "time-travel-radio",
+  "version": "1.0.0",
+  "description": "## Development",
+  "main": "ecosystem.config.js",
+  "scripts": {
+    "preinstall": "npm install -g pm2",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric McNiece <hello@emc2innovation.com> (https://github.com/emcniece)",
+  "license": "ISC"
+}
