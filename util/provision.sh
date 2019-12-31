@@ -10,6 +10,12 @@ echo -e 'LANG="en_CA.UTF-8"\nLANGUAGE="en_CA:en"\n' | sudo tee -a /etc/default/l
 
 # 1. Install pip
 
+# X. Install spidev
+git clone https://github.com/doceme/py-spidev.git
+pushd py-spidev
+sudo python setup.py install
+popd
+
 # 2. Install NVM
 if command -v nvm; then
   echo "NVM is already installed."
