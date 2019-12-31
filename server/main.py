@@ -32,9 +32,9 @@ while True:
     tube3.set_led(127, 15, 0)
     tube4.set_led(127, 15, 0)
 
-    tube1.crossfade_init(count, 10)
-    while tube1.animation_in_progress:
-        tube1.crossfade_run()
+    # tube1.crossfade_init(count, 10)
+    # while tube1.animation_in_progress:
+        # tube1.crossfade_run()
         #time.sleep(0.033)
 
     #tube1.set_digit(count)
