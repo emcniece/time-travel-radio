@@ -7,7 +7,7 @@ import spidev
 
 # Hack to get Python to find the local library and import as a module
 # Library dir: /home/pi/exixe/python_library
-sys.path.insert(1, '/home/pi/exixe/python_library')
+#sys.path.insert(1, '/home/pi/exixe/python_library')
 import exixe
 
 spi = spidev.SpiDev()

@@ -3,7 +3,11 @@
 //   - Figure out how to git config:
 //     git config --global user.nae "First Lastname"
 //     git config --global user.email "user@example.com"
+//   - usermod -a -G spi username
+
 const provision = `which git || (sudo apt update && sudo apt install git)`
+
+const branchName = require('current-git-branch');
 
 module.exports = {
   apps : [{
@@ -32,7 +36,7 @@ module.exports = {
     dev : {
       user : 'emcniece',
       host : '192.168.1.119',
-      ref  : 'origin/dev',
+      ref  : `origin/${branchName}`,
       repo : 'https://github.com/emcniece/time-travel-radio.git',
       path : '/home/emcniece/time-travel-radio',
       'pre-setup'   : provision,
