@@ -1,10 +1,14 @@
+// Minimal provisioning to be able to `git clone` this repo
+// ToDo:
+//   - Figure out how to git config:
+//     git config --global user.nae "First Lastname"
+//     git config --global user.email "user@example.com"
+const provision = `which git || (sudo apt update && sudo apt install git)`
+
 module.exports = {
   apps : [{
     name: 'time-travel-radio-server',
     script: 'server/main.py',
-
-    // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
-    // args: 'one two',
     instances: 1,
     autorestart: true,
 
@@ -24,14 +28,16 @@ module.exports = {
       NODE_ENV: 'production'
     }
   }],
-
   deploy : {
     dev : {
-      user : 'pi',
+      user : 'emcniece',
       host : '192.168.1.119',
-      ref  : 'origin/master',
-      repo : 'git@github.com:repo.git',
-      path : '/var/www/production',
+      ref  : 'origin/dev',
+      repo : 'https://github.com/emcniece/time-travel-radio.git',
+      path : '/home/emcniece/time-travel-radio',
+      'pre-setup'   : provision,
+      'post-setup'  : './util/provision.sh',
+      'ssh_options' : 'StrictHostKeyChecking=no',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
