@@ -22,18 +22,6 @@ tube2 = exixe.Exixe(11, spi)
 tube3 = exixe.Exixe(13, spi)
 tube4 = exixe.Exixe(15, spi)
 
-
-
-# while True:
-#     my_tube.set_led(127, 0, 127)  # Purple
-#     time.sleep(1)
-
-# for r in range(127):
-#   for g in range(127):
-#     for b in range(127):
-#       my_tube.set_led(r, g, b)
-
-
 count = 0
 while True:
     #color = mapFromTo(count, 0, 127, 0, 10)
@@ -45,7 +33,6 @@ while True:
     tube4.set_led(127, 15, 0)
 
     tube1.crossfade_init(count, 10)
-
     while tube1.animation_in_progress:
         tube1.crossfade_run()
         #time.sleep(0.033)
@@ -55,4 +42,4 @@ while True:
     tube3.set_digit(count)
     tube4.set_digit(count)
     count = (count + 1) % 10
-    time.sleep(0.4)
+    #time.sleep(0.4)
