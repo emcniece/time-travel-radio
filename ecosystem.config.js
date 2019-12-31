@@ -7,7 +7,8 @@
 
 const provision = `which git || (sudo apt update && sudo apt install git)`
 
-const branchName = require('current-git-branch');
+const currentGitBranch = require('current-git-branch');
+const branchName = currentGitBranch()
 
 module.exports = {
   apps : [{
@@ -36,7 +37,7 @@ module.exports = {
     dev : {
       user : 'emcniece',
       host : '192.168.1.119',
-      ref  : `origin/${branchName}`,
+      ref  : 'origin/'+branchName,
       repo : 'https://github.com/emcniece/time-travel-radio.git',
       path : '/home/emcniece/time-travel-radio',
       'pre-setup'   : provision,
