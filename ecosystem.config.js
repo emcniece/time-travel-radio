@@ -3,7 +3,7 @@
 //   - Figure out how to git config:
 //     git config --global user.nae "First Lastname"
 //     git config --global user.email "user@example.com"
-//   - usermod -a -G spi username
+//   - usermod -a -G spi,gpio username
 
 const provision = `which git || (sudo apt update && sudo apt install git)`
 
